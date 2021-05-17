@@ -1,40 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Instagram</title>
-  <link href="base.css" rel="stylesheet" type="text/css" />
-  <link rel="icon" href="../../img/icon.png">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+{% extends 'base.html' %}
+ {% load static %}
+ {% block content %}
+    <link href="{% static 'css/detail.css'%}" rel="stylesheet" type="text/css" />
+    <div class="content" style="margin-top: 70px">
+        {% for feed in feeds %}
+         <div class="main">
+         <section class="cardViewSection">
+          <div class="cardView">
+                 <header>
+                       <div class="userNickName">userNickName</div>
+                 </header>
+                 <div class="cardImage" >
+                      <img src="{{feed.image.url}}" alt="이미지">
+                 </div>
+             <div class="cardInfo">
+                 <div class="infoLeft">
+                      <img class="feedImg" src="{% static 'img/liked.png' %}" alt="좋아용" />
+                      <img class="feedImg" src="{% static 'img/comment.png'%}" alt="코멘트" />
+                      <img class="feedImg" src="{% static 'img/upload.png' %}" alt="업로드" />
+                 </div>
+              </div>
+             <div class="comment">
+                 {{feed.pub_date}} <br>
+                  {{feed.summary}}<br> <a href="{% url 'detail' feed.id%}"> ...more </a>
+              </div>
+               <div class="comment_form">
+                 <form action="">
+                      <input type="text" placeholder="댓글 입력..">
+                  </form>
+             </div>
+         </div>
+         </section>
+      </div>
+     {% endfor %}
+    </div>
+ {% endblock %}
 
-</head>
-<body>
-  <headr>
-    <navbar class="navbar_container">
-      <div class="leftSide">
-         <img src="../../img/logo_text.png" alt="인스타 글씨" width="120" height="40" />
-     </div>
-     <ul class="rightSide">
-          <li class="homeBtn" alt="홈버튼">
-            <a> <img src="../../img/home.png" /> </a>
-          </li>
-          <li class="newBtn" alt="피드작성버튼">
-            <a> <img src="../../img/addFeedBtn.png" /> </a>
-          </li>
-          <li class="myInfoBtn" alt="프로필버튼">
-            <a>   <img src="../../img/myinfo.png" /> </a>
-          </li>
-           <li class="account_box" alt="로그인관련" >
-             <button class="btn btn-outline-secondary">로그인</button>
-          </li> 
-     </ul>
-    </navbar>  
-  </header>
-  <section>
-  </section>
-  <div class="bord" >
-  
-
-  </div>
-</body>
-</html>

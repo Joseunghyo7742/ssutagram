@@ -1,44 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Instagram</title>
-<link href="detail.css" rel="stylesheet" type="text/css" />
-<link rel="icon" href="../../img/icon.png">
-<body>
-  <div class="main">
-    <section class="cardViewSection">
-        <div class="cardView">
-            <header>
-                <div class="userNickName">userNickName</div>
-            </header>
-            <div class="cardImage">
-                <img src="../../img/ssu_likelion_logo.png" alt="sample">
-            </div>
-            <div class="cardInfo">
-                <div class="infoLeft">
-                  <img class="feedImg" src="../../img/liked.png" alt="좋아용" />
-                  <img class="feedImg" src="../../img/comment.png" alt="코멘트" />
-                  <img class="feedImg" src="../../img/upload.png" alt="업로드" />
-                </div>
-                <div class="infoRight">
-                  <img class="feedImg" src="../../img/edit.png" alt="수정버튼" />
-                   <img class="feedImg" src="../../img/deletebtn.png" alt="삭제버튼" />
-                </div>
-            </div>
-            <div class="comment">
-                asdf
-            </div>
-            <div class="comment_form">
-                <form action="">
-                    <input type="text" placeholder="댓글 입력..">
-                </form>
-            </div>
-        </div>
-    </section>
-</div>
-
-
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/detail.css'%}" rel="stylesheet" type="text/css" />
+   <div class="content" style="margin-top: 70px">
+         <div class="main" >
+         <section class="cardViewSection">
+          <div class="cardView">
+                 <header>
+                       <div class="userNickName">userNickName</div>
+                 </header>
+                 <div class="cardImage">
+                      <img src="{{feed.image.url}}" alt="이미지">
+                 </div>
+             <div class="cardInfo">
+                 <div class="infoLeft">
+                      <img class="feedImg" src="{% static 'img/liked.png' %}" alt="좋아용" />
+                      <img class="feedImg" src="{% static 'img/comment.png'%}" alt="코멘트" />
+                      <img class="feedImg" src="{% static 'img/upload.png' %}" alt="업로드" />
+                 </div>
+              </div>
+             <div class="comment">
+                 {{feed.pub_date}} <br>
+                  {{feed.summary}}
+              </div>
+               <div class="comment_form">
+                 <form action="">
+                      <input type="text" placeholder="댓글 입력..">
+                  </form>
+             </div>
+         </div>
+         </section>
+      </div>
+{% endblock %}
