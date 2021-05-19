@@ -27,7 +27,13 @@
             <a> <img src="{% static 'img/myinfo.png' %}" /> </a>
           </li>
            <li class="account_box" alt="로그인관련" >
-             <button class="btn btn-outline-secondary">로그인</button>
+              {% if user.is_authenticated %}
+                <button class="btn btn-outline-secondary"><a href="{% url 'logout' %}">로그아웃</a></button>
+              {% endif %}
+
+              {% if not user.is_authenticated %}
+                <button class="btn btn-outline-secondary"><a href="{% url 'login' %}">로그인</a></button>
+              {% endif %}
           </li> 
      </ul>
     </navbar>  

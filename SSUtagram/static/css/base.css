@@ -1,6 +1,6 @@
 *{
     box-sizing: border-box;
-   background-color: whitesmoke;
+    background-color: whitesmoke;
 }
 img{
     background-color: white;
@@ -27,6 +27,7 @@ img{
     margin-right:500px;
     background-color: white;
 }
+
 .rightSide{
     display:flex;
     list-style: none;

@@ -2,12 +2,10 @@ body{
     margin : 0;
 }
 .main{
-    background-color: #efefef;
     display: flex;
     flex-direction: row;
     justify-content:center;
-    height: 100vh;
-    width: 100vw;
+    width:100%
 }
 
 .userNickName{
@@ -16,21 +14,21 @@ body{
     line-height: 50px;
     margin-left: 10px;
 }
+.cardImage{
+    width:500px;
+    height: 450px;
+}
 .cardImage img{
     width: 100%;
+    height:100%;
 }
 .cardView{
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #efefef;
     background-color: white;
     width: 500px;
-    height: 500px;
+    height: 700px;
     
-}
-
-.main{
-    margin: 1rem;
 }
 .feedImg{
     height: 22px;
