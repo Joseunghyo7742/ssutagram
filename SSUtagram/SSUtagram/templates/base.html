@@ -18,23 +18,33 @@
      </div>
      <ul class="rightSide">
           <li class="homeBtn" alt="홈버튼">
-            <a> <img src="{% static 'img/home.png'%}" /> </a>
+            <a href={% url 'home' %}> <img src="{% static 'img/home.png'%}" /> </a>
           </li>
-          <li class="newBtn" alt="피드작성버튼">
-            <a> <img src="{% static 'img/addFeedBtn.png' %}" /> </a>
+          <li class="newBtn" alt="피드작성버튼">  
+            {% if user.is_authenticated%}
+              <a href={% url 'new' %}> <img src="{% static 'img/addFeedBtn.png' %}" /> </a>
+            {% endif %}
+            {% if not user.is_authenticated %}
+              <a href={% url 'login' %}> <img src="{% static 'img/addFeedBtn.png' %}" /> </a>
+            {% endif %}
           </li>
           <li class="myInfoBtn" alt="프로필버튼">
             <a> <img src="{% static 'img/myinfo.png' %}" /> </a>
           </li>
            <li class="account_box" alt="로그인관련" >
               {% if user.is_authenticated %}
+                <li class="nowUser" alt="현재 유저 아이디">
+                  {{user.username}}
+                </li>
                 <button class="btn btn-outline-secondary"><a href="{% url 'logout' %}">로그아웃</a></button>
+                 
               {% endif %}
 
               {% if not user.is_authenticated %}
                 <button class="btn btn-outline-secondary"><a href="{% url 'login' %}">로그인</a></button>
               {% endif %}
           </li> 
+           
      </ul>
     </navbar>  
   </header>

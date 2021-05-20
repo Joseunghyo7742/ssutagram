@@ -31,9 +31,9 @@ img{
 .rightSide{
     display:flex;
     list-style: none;
-    justify-content:space-around;
+    justify-content:space-between;
     margin-top: 19px;
-    margin-left:200px;
+    margin-left:150px;
     width:20%;
     padding:0;
     background-color:white

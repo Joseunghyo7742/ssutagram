@@ -31,10 +31,10 @@ img{
 .rightSide{
     display:flex;
     list-style: none;
-    justify-content:space-around;
+    justify-content:space-between;
     margin-top: 19px;
-    margin-left:200px;
-    width:20%;
+    margin-left:150px;
+    width:25%;
     padding:0;
     background-color:white
 }
