@@ -36,9 +36,21 @@ body{
 }
 .cardInfo{
     display: flex;
-    justify-content: space-between;
     background-color: #fff;
     width: 100%;
+}
+.infoLeft{
+    display:flex;
+    justify-content: space-between;
+    width:15%;
+    background-color: #fff
+}
+.infoRight{
+    display:flex;
+    justify-content: space-between;
+    width:10%;
+    margin-left:370px;
+    background-color: #fff;
 }
 .comment{
 

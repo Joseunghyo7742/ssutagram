@@ -22,3 +22,19 @@ def create(request):
     new_Feed.image= request.FILES['image']
     new_Feed.save()
     return redirect('home')
+
+def delete(request, feed_id):
+    feed=get_object_or_404(Feed,pk=feed_id)
+    feed.delete()
+    return redirect('home')
+
+def edit(request, feed_id):
+    feed=get_object_or_404(Feed,pk=feed_id)
+    return render(request, 'edit.html', {'exist_feed':feed})
+
+def update(request, feed_id):
+    update_feed=get_object_or_404(Feed,pk=feed_id)
+    update_feed.text=request.POST['text']
+    update_feed.image=request.POST['image']
+    update_feed.save()
+    return redirect('home')
