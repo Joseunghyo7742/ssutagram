@@ -9,4 +9,6 @@ urlpatterns=[
     path('feed/delete/<int:feed_id>',views.delete,name='delete'),
     path('feed/edit/<int:feed_id>',views.edit,name='edit'),
     path('feed/update/<int:feed_id>',views.update,name='update'),
+    path('profile',views.profile,name='profile'),
+    
 ]

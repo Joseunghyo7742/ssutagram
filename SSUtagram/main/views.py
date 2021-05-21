@@ -38,3 +38,6 @@ def update(request, feed_id):
     update_feed.image=request.POST['image']
     update_feed.save()
     return redirect('home')
+
+def profile(request):
+    return render(request,'profile.html')
