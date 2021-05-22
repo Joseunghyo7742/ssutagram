@@ -2,12 +2,26 @@
 {% load static %}
 {% block content %}
     <link href="{% static 'css/detail.css'%}" rel="stylesheet" type="text/css" />
+    <style>
+      a{
+           color:black;
+           text-decoration:none;
+      }
+      a:hover{
+          text-decoration:underline;
+          color:black;
+      }
+    </style>
    <div class="content" style="margin-top: 70px">
          <div class="main" >
          <section class="cardViewSection">
           <div class="cardView">
                  <header>
-                       <div class="userNickName">userNickName</div>
+                       <div class="userNickName">
+                        <a href="{% url 'profile' feed.author.id %}"  >
+                            <b> {{ feed.author.username }} </b>
+                        </a>
+                       </div>
                  </header>
                  <div class="cardImage">
                       <img src="{{feed.image.url}}" alt="이미지">
@@ -18,10 +32,12 @@
                       <img class="feedImg" src="{% static 'img/comment.png'%}" alt="코멘트" />
                       <img class="feedImg" src="{% static 'img/upload.png' %}" alt="업로드" />
                  </div>
-                 <div class="infoRight">
-                    <a href="{% url 'edit' feed.id %}"> <img class="feedImg" src ="{% static 'img/edit.png' %}" alt="수정버튼"/> </a>
-                    <a href="{% url 'delete' feed.id %}"> <img class="feedImg" src="{% static 'img/deletebtn.png'%}" alt="삭제버튼" /> </a>
-                </div>
+                {% if user.id == feed.author.id %}
+                    <div class="infoRight">
+                        <a href="{% url 'edit' feed.id %}"> <img class="feedImg" src ="{% static 'img/edit.png' %}" alt="수정버튼"/> </a>
+                        <a href="{% url 'delete' feed.id %}"> <img class="feedImg" src="{% static 'img/deletebtn.png'%}" alt="삭제버튼" /> </a>
+                    </div>
+                {% endif %}
               </div>
              <div class="comment">
                  {{feed.pub_date}} <br>

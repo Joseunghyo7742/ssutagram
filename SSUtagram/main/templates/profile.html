@@ -12,11 +12,11 @@
 					</button>
 					</div>
 					<div class="profileUserSetting">
-						<h1 class="profileUserName">username</h1>
-						<h2 class="profileNickName">nickname</h2>
-						<!--{% if user.id == author.id %}-->
-						<button class="profileEdit">프로필 편집</button>
-						<!--{% endif %}-->
+						<h1 class="profileUserName">{{author.username}}</h1>
+						<h2 class="profileNickName"></h2>
+						{% if user.id == author.id %}
+							<button class="profileEdit">프로필 편집</button>
+						{% endif %}
 					</div>
 					<div class="profileStats">
 						<ul><!--관련해서는 나중에 Profile Model 수정하기-->
@@ -34,38 +34,16 @@
 			<!-- End of container -->
 		</header>
 		<main>
-			<div class="galleryContainer">
-				<div class="gallery">
-					<div class="galleryPicture" tabindex="0">
-						<img src="{% static 'img/ssu_likelion_logo.png' %}" class="galleryImg" alt="">
-						<div class="galleryPictureInfo">
-							<ul>
-								<li class="galleryPictureLikes"><span class="visualHiddenInfo">Likes:</span><i class="heart" aria-hidden="true"></i> 0</li>
-								<li class="galleryPictureComments"><span class="visualHiddenInfo">Comments:</span><i class="comment" aria-hidden="true"></i> 0</li>
-							</ul>
+			{% for feed in feeds %}
+				<div class="galleryContainer">
+					
+						<div class="gallery" >
+								<a href="{% url 'detail' feed.id %}">
+									<img src="{{feed.image.url}}" alt="이미지">
+								</a>
 						</div>
-					</div>
-					<div class="galleryPicture" tabindex="0">
-						<img src="{% static 'img/ssu_likelion_logo.png' %}" class="galleryImg" alt="">
-						<div class="galleryPictureInfo">
-							<ul>
-								<li class="galleryPictureLikes"><span class="visualHiddenInfo">Likes:</span><i class="heart" aria-hidden="true"></i> 0</li>
-								<li class="galleryPictureComments"><span class="visualHiddenInfo">Comments:</span><i class="comment" aria-hidden="true"></i> 0</li>
-							</ul>
-						</div>
-					</div>
-					<div class="galleryPicture" tabindex="0">
-						<img src="{% static 'img/ssu_likelion_logo.png' %}" class="galleryImg" alt="">
-						<div class="galleryPictureInfo">
-							<ul>
-								<li class="galleryPictureLikes"><span class="visualHiddenInfo">Likes:</span><i class="heart" aria-hidden="true"></i> 0</li>
-								<li class="galleryPictureComments"><span class="visualHiddenInfo">Comments:</span><i class="comment" aria-hidden="true"></i> 0</li>
-							</ul>
-						</div>
-					</div>
+					
 				</div>
-			</div>
+			{% endfor %}
 		</main>
-				
-			
 	{% endblock %}

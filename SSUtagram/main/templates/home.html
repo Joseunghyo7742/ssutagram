@@ -3,12 +3,26 @@
  {% block content %}
     <link href="{% static 'css/detail.css'%}" rel="stylesheet" type="text/css" />
     <div class="content"  style="margin-top: 70px">
+    <style>
+      a{
+           color:black;
+           text-decoration:none;
+      }
+      a:hover{
+          text-decoration:underline;
+          color:black;
+      }
+    </style>
         {% for feed in feeds %}
          <div class="main">
          <section class="cardViewSection">
           <div class="cardView">
                  <header>
-                       <div class="userNickName">userNickName</div>
+                       <div class="userNickName">
+                       <a href="{% url 'profile' feed.author.id %}"  >
+                         <b> {{ feed.author.username }} </b>
+                       </a>
+                       </div>
                  </header>
                  <div class="cardImage" >
                       <img src="{{feed.image.url}}" alt="이미지">
