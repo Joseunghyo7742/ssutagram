@@ -50,3 +50,6 @@ def myProfile(request):
     author=request.user
     feeds=author.feeds.all()
     return render(request,'profile.html',{'author':author,'feeds':feeds})
+
+def setting(request):
+    return render(request, 'profileSetting.html')

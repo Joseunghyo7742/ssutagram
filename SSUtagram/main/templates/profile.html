@@ -7,27 +7,33 @@
 			<div class="container">
 				<div class="profile">
 					<div class="profileImg">
-						<button class="imgbtn" title="프로필 사진 바꾸기">
-						<img src="{% static "img/ssu_likelion_logo.png " %}" alt="">
-					</button>
+						 <img src=
+               			 {% if author.profile.profileImg%} 
+                   		 	"{{author.profile.profileImg.url}}"
+               			 {% else %}
+                    		"{% static 'img/default_profile.png' %}"
+                		 {% endif %}
 					</div>
-					<div class="profileUserSetting">
-						<h1 class="profileUserName">{{author.username}}</h1>
-						<h2 class="profileNickName"></h2>
-						{% if user.id == author.id %}
-							<button class="profileEdit">프로필 편집</button>
-						{% endif %}
-					</div>
-					<div class="profileStats">
-						<ul><!--관련해서는 나중에 Profile Model 수정하기-->
-							<li><span class="profileStatsNum">000</span> 게시물</li>
-							<li><span class="profileStatsNum">000</span> 팔로워</li>
-							<li><span class="profileStatsNum">000</span> 팔로잉</li>
+					<section class="informations">
+						<div class="profileUserSetting">
+							<h2 class="profileUserName">{{author.username}}</h2>
+							<div class="editBtn">
+								{% if user.id == author.id %}
+									<a href="{% url 'profileSetting'%}"><button class="profileEdit">프로필 편집</button></a>
+								{% endif %}
+							</div>
+						</div>
+						<ul class="numInfo">
+								<li>게시물<span class="num"><b> {{feeds.length}}</b></span> </li>
+								<li>팔로워<span class="num"><b> 00</b></span> </li>
+								<li>팔로잉<span class="num"><b> 00</b></span> </li>
 						</ul>
-					</div>
-					<div class="profileIntro">
-						<p class="profileIntroduce">hello world✈️</p>
-					</div>
+						<div class="profileIntro">
+							<h1 class="nickname">{{author.profile.nickname}}</h1>
+							<br>
+							<span>hello world✈️</span>
+						</div>
+					</section>
 				</div>
 				<!-- End of profile section -->
 			</div>

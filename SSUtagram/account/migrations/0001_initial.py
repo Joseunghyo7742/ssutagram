@@ -15,13 +15,13 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Feed',
+            name='Profile',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('pub_date', models.DateTimeField(verbose_name='date published')),
-                ('text', models.TextField()),
-                ('image', models.ImageField(upload_to='photos/%m/%d')),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='feeds', to=settings.AUTH_USER_MODEL)),
+                ('profileImg', models.ImageField(upload_to='profileImg')),
+                ('nickName', models.CharField(max_length=20)),
+                ('intro', models.TextField()),
+                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]

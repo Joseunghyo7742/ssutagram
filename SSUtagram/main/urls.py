@@ -11,5 +11,6 @@ urlpatterns=[
     path('feed/update/<int:feed_id>',views.update,name='update'),
     path('profile/<int:author_id>',views.profile,name='profile'),
     path('myprofile/',views.myProfile,name='myprofile'),
+    path('myprofile/profileSetting/',views.setting, name="profileSetting"),
     
 ]
