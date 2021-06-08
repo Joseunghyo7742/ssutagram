@@ -29,7 +29,7 @@
             {% endif %}
           </li>
           <li class="myInfoBtn" alt="프로필버튼">
-            <a> <img src="{% static 'img/myinfo.png' %}" /> </a>
+            <a href="{% url 'myprofile' %}"> <img src="{% static 'img/myinfo.png' %}" /> </a>
           </li>
            <li class="account_box" alt="로그인관련" >
               {% if user.is_authenticated %}

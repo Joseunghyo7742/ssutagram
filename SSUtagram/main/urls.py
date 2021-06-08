@@ -10,5 +10,6 @@ urlpatterns=[
     path('feed/edit/<int:feed_id>',views.edit,name='edit'),
     path('feed/update/<int:feed_id>',views.update,name='update'),
     path('profile/<int:author_id>',views.profile,name='profile'),
+    path('myprofile/',views.myProfile,name='myprofile'),
     
 ]

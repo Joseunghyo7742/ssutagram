@@ -45,3 +45,8 @@ def profile(request,author_id):
     author=get_object_or_404(User,pk=author_id)
     feeds= author.feeds.all()
     return render(request,'profile.html',{'author':author, 'feeds':feeds})
+
+def myProfile(request):
+    author=request.user
+    feeds=author.feeds.all()
+    return render(request,'profile.html',{'author':author,'feeds':feeds})
