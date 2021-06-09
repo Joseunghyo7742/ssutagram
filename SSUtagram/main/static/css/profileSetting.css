@@ -3,11 +3,11 @@ body{
 }
 .setting-container{
     width:64%;
-    height:900px;
+    height:400px;
     margin:100px 250px 0px 250px;
     background-color: #ffffff;
     display:grid;  
-    grid-template-columns:1fr 0.7fr 3fr;
+    grid-template-columns:1fr 1.2fr 3fr;
     grid-template-rows: 1fr 9fr;
     border: 1px solid gainsboro;
     border-radius: 0.2rem;
@@ -37,7 +37,7 @@ body{
     grid-column:2/3;
     width: 50px;
     height:50px;
-    margin-left: 70px;
+    margin-left: 140px;
     margin-top:32px;
     border-radius:50%;
 }
@@ -46,13 +46,30 @@ body{
     grid-column:3/4;
     grid-row:1/2;
 }
-.label{
-    grid-column:2/3;
+.label, .info{
+    margin-left:3px;
+    margin-top:30px;
     grid-row: 2/3;
 }
+.label{
+    padding-right:38px;
+    grid-column:2/3;
+    list-style:none;
+}
+.label-list{
+    margin-bottom:30px;
+    text-align: right;
+    font-weight: bold;
+}
 .info{
-    grid-column:3/4;
-    grid-row:2/3;
+    grid-column:3/4; 
+}
+.info-item{
+    margin-bottom:26px;
+    display:block;
+    width:400px;
+    border: 1px solid gainsboro;
+    border-radius: 0.2rem;
 }
 .username{
     font-size: 21px;
