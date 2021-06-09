@@ -59,3 +59,13 @@ def editProfileImg(request):
     request.user.profile.profileImg=request.FILES['image']
     request.user.profile.save()
     return redirect('profileSetting')
+
+def editProfileInfo(request):
+    profile=request.user.profile
+    request.user.username=request.POST['username']
+    profile.nickName=request.POST['nickname']
+    profile.intro=request.POST['intro']
+    request.user.save()
+    profile.save()
+    return redirect('myprofile')
+    

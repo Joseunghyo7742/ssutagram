@@ -32,11 +32,13 @@
              <li class="label-list">사용자 이름</li>
              <li class="label-list">소개</li>
         </ul>
-        <form method ="POST" action="">
+        <form method ="POST" action="{% url "editProfileInfo"%}">
+                {%csrf_token%}
                 <div class="info">
-                 <input name="nickname" type="text" class="info-item" style=height:30px; value={{user.profile.nickname}}  >
+                 <input name="nickname" type="text" class="info-item" 
+                    style=height:30px; placeholder="사용자 별명" value={{user.profile.nickName}}   >
                  <input name="username" type="text"  class="info-item"style=height:30px; value={{user.username}}>
-                 <textarea name="text"  rows="3"  class="info-item">{{user.profile.intro}}</textarea>
+                 <textarea name="intro"  rows="3"  class="info-item" placeholder="사용자 소개">{{user.profile.intro}}</textarea>
                 </div>
                 <button type="submit" class="submitbtn" >제출</button>
         </form>
