@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.utils import timezone
 from .models import Feed
 from django.contrib.auth.models import User
+from account.models import Profile
 
 # Create your views here.
 def home(request):
@@ -53,3 +54,8 @@ def myProfile(request):
 
 def setting(request):
     return render(request, 'profileSetting.html')
+
+def editProfileImg(request):
+    request.user.profile.profileImg=request.FILES['image']
+    request.user.profile.save()
+    return redirect('profileSetting')

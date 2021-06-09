@@ -1,12 +1,15 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
+from .models import Profile
 
 def signup(request):
     if request.method == "POST":
         if request.POST["1st_password"]== request.POST["2nd_password"]:
             user=User.objects.create_user(username=request.POST["username"],
                                           password=request.POST["1st_password"])
+            profile=Profile(user=user)
+            profile.save()
             auth.login(request,user)
             return redirect('home')
         return render(request, 'signup.html')    

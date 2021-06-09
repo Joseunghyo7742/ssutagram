@@ -20,11 +20,27 @@
         </div>
         <div class= "basicInfo">
             <h2 class="username">{{user.username}}</h2>
-            
-            <button class="editImg" type="button">프로필 사진 바꾸기</button>
+            <form action="{% url "edit_profileImg" %}" enctype="multipart/form-data" method="post">
+                 {%csrf_token%}
+                 <label for="filebtn" class="editBtn"><b> 프로필 사진 바꾸기</b> </label>
+                 <input type="file" accept="imgae/jpeg,image/png" name="image" style="display:none" id="filebtn">
+                 <button type="submit" class="submitbtn">변경</button>
+            </form>
         </div>
         <div class= "Info-edit">
-            
+         <ul class= "label">
+                 <li class="label-list">이름 </li>
+                 <li class="label-list">사용자 이름</li>
+                 <li class="label-list">소개</li>
+        </ul>
+            <form method ="POST" action="">
+                <div class="info">
+                 <input name="nickname" type="text" value={{user.profile.nickname}}>
+                 <input name="username" type="text" value={{user.username}}>
+                 <textarea name="text" id="" cols="40" rows="2">{{user.profile.intro}}</textarea>
+                </div>
+                <button type="submit" class="submitbtn" >제출</button>
+            </form>
         </div>   
         
         
