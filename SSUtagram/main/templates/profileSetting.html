@@ -1,18 +1,32 @@
 {% extends 'base.html' %}
  {% load static %}
  {% block content %}
-    <div class="settingContainer">
-        <div class="profileImg">
+ <link href="{% static 'css/profileSetting.css'%}" rel="stylesheet" type="text/css" />
+    <div class="setting-container">
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"> 프로필 편집 </li>
+                <li class="nav-item"> 비밀번호 변경 </li>
+            </ul>
+        </div>
+        <div class="Img-edit">
             <img src=
-                {% if user.profile.profileImg%} 
-                    "{{user.profile.profileImg.url}}"
-                {% else %}
-                    "{% static 'img/default_profile.png' %}"
-                {% endif %}
+                    {% if user.profile.profileImg%} 
+                        "{{user.profile.profileImg.url}}"
+                    {% else %}
+                        "{% static 'img/default_profile.png' %}"
+                    {% endif %}
+            >
         </div>
-        <div class= "basic">
-          <h1 class="username">{{user.username}}</h1>
-          <button class="editImg" type="button">프로필 사진 바꾸기</button>
+        <div class= "basicInfo">
+            <h2 class="username">{{user.username}}</h2>
+            
+            <button class="editImg" type="button">프로필 사진 바꾸기</button>
         </div>
+        <div class= "Info-edit">
+            
+        </div>   
+        
+        
     </div>
  {% endblock %}
